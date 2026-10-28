@@ -1,0 +1,79 @@
+# Who you are. Edit by hand; the pipeline only reads this file.
+# Replace every CHANGE_ME (the pipeline refuses to run until they are gone) and delete what you don't need.
+# After editing, run `python -m apply_agent.sync` (the daily run does it too) so the Chrome extension picks it up.
+# Quote anything that is only digits (phone, zip) so YAML keeps it as text.
+
+name:
+  first: CHANGE_ME                # everyday name, used for most name fields
+  last: CHANGE_ME
+  # middle: ""
+  # legal_first: ""               # used for fields labelled legal / passport / government, when it differs
+  # legal_last: ""
+  # preferred_first: ""
+  pronouns: they/them             # she/her | he/him | they/them (used in LLM prompts)
+
+contact:
+  email: CHANGE_ME
+  phone: ""
+  linkedin: ""
+  github: ""
+  website: ""                     # if empty, the GitHub URL is used for "website" boxes
+
+address:
+  street: ""
+  city: ""
+  state: ""
+  state_abbr: ""
+  zip: ""
+  country: United States
+
+education:
+  school: ""
+  undergrad_school: ""
+  degree: ""                      # e.g. Bachelor of Science
+  degree_options: []              # tried in order for degree dropdowns, e.g. ["Bachelor's", "Bachelor of Science", "BS"]
+  major: ""
+  start_month: ""
+  start_year: ""
+  end_month: ""
+  end_year: ""
+  grad_year: ""
+  grad_date: ""                   # MM/DD/YYYY
+  gpa: ""
+  test_scores: ""                 # used for "standardized test scores" questions
+  # Two phrases the LLM prompts use. Write them so they read naturally in these sentences:
+  blurb: ""                       # "the candidate has <blurb> and wants roles starting around then"
+  tagline: ""                     # "draft answers for <name> (<tagline>)"
+
+current:
+  company: ""
+  title: Student
+
+work_authorization:
+  authorized: "Yes"               # legally authorized to work in the US?
+  needs_sponsorship: "No"         # will you now or in the future need sponsorship?
+
+eeo:                              # matched against dropdown option text; leave empty to never fill
+  veteran: ""
+  disability: ""
+  gender: ""
+  race: ""
+
+form:
+  answer_no: "No"                 # the "ever worked here / related to an employee / ..." family
+
+# Your overrides of config.yaml (same keys). Anything not listed here uses the default there.
+settings:
+  # jobs_per_day: 10
+  # candidate:
+  #   base_resumes:               # role -> base LaTeX resume, relative to the project folder
+  #     SWE: resume/original_tex/SWE_Resume.tex
+  #     PM: resume/original_tex/PM_Resume.tex
+  # search:
+  #   roles: [SWE, PM]
+  #   location_mode: bay_area_or_remote   # bay_area_only | bay_area_or_remote | us
+  #   max_years_required: 2
+  #   degree_path: false                  # true if you have or will have a graduate degree
+  # sheet:
+  #   enabled: true
+  #   id: ""                              # from docs.google.com/spreadsheets/d/<ID>/edit

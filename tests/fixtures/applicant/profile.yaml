@@ -1,0 +1,42 @@
+# A made-up applicant for the test suite. Not a real person.
+name:
+  first: Sam
+  last: Tester
+  legal_first: Samuel
+  pronouns: they/them
+contact:
+  email: sam.tester@example.com
+  phone: "5550100"
+  github: https://github.com/sam-tester
+address:
+  street: 1 Example Way
+  city: Exampleton
+  state: California
+  state_abbr: CA
+  zip: 94000
+  country: United States
+education:
+  school: Example University
+  degree: Bachelor of Science
+  degree_options: ["Bachelor's", "BS"]
+  major: Computer Science
+  end_year: 2028
+  grad_year: 2028
+  gpa: 3.5
+  blurb: a BS in CS from Example University (graduating May 2028)
+  tagline: Example University BS CS, graduating May 2028
+current:
+  title: Student
+work_authorization:
+  needs_sponsorship: "Yes"
+eeo:
+  gender: nonbinary
+settings:
+  jobs_per_day: 4
+  candidate:
+    base_resumes:
+      SWE: resume/original_tex/SWE_Sam_Resume.tex
+      PM: resume/original_tex/PM_Sam_Resume.tex
+  search:
+    location_mode: us
+    degree_path: false

@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "Job App Autofill",
+  "version": "1.0",
+  "description": "Fills job application forms with your profile and the pipeline's per-job answers.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Autofill this page"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "fill-page": {
+      "suggested_key": {
+        "default": "Alt+Shift+F",
+        "mac": "Alt+Shift+F"
+      },
+      "description": "Autofill this page"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "all_frames": true,
+      "js": [
+        "config.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "generated/packets.json",
+        "generated/profile.json"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}

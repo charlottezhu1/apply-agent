@@ -1,0 +1,57 @@
+# Generic defaults for the pipeline. Safe to commit: nothing here is about a person.
+# The applicant's own choices live in applicant/profile.yaml under `settings:` and win over this file
+# (same keys, merged key by key). Put your sheet id, resume file names and search limits there.
+
+jobs_per_day: 10                      # THE volume knob: max NEW resumes tailored per run
+daily_budget_usd: 15                  # stop starting new LLM work once a run has spent this much
+backlog_days: 14                      # tailored-but-unapplied jobs stay in the summary this long
+timezone: America/Los_Angeles
+
+candidate:
+  resume_repo: resume
+  base_resumes:                       # role -> base LaTeX resume, relative to the project folder
+    SWE: resume/original_tex/SWE_Resume.tex
+    PM:  resume/original_tex/PM_Resume.tex
+
+search:
+  roles: [SWE, PM]
+  include_internships: false
+  max_years_required: 2
+  location_mode: bay_area_or_remote   # bay_area_only | bay_area_or_remote | us
+  max_age_days: 30
+  max_age_days_manual: 60             # hard cap for jobs added via batch/add (~2 months)
+  use_simplify: true
+  degree_path: true                   # count "3+ years, or 1+ with a Master's" as meeting the bar (true if you have or will have a graduate degree)
+
+matchmaker:
+  model: deepseek-chat                # job scoring; claude-sonnet-5-5 to switch back (needs DEEPSEEK_API_KEY)
+  effort: medium
+  concurrency: 8
+  min_score: 60
+  max_jobs_per_run: 150               # safety cap on API calls per run
+
+rank:
+  match_weight: 0.7
+  half_life_days: 14
+  max_per_company: 2
+
+customize:
+  concurrency: 3
+  max_budget_usd_per_job: 3
+  timeout_minutes: 15
+  model: claude-sonnet-5-5           # tailoring sessions (was opus)
+  auth: subscription                  # subscription = your Claude plan (CLAUDE_CODE_OAUTH_TOKEN in .env) | api_key
+
+submission:
+  cover_letter: false
+  model: claude-sonnet-5-5
+  effort: low
+
+sheet:                                # tracker spreadsheet; switch on and fill in under `settings:` in your profile
+  enabled: false
+  write_on: applied                   # applied = add a row when you apply | tailored = add every day's picks
+  name: ""
+  id: ""                              # from docs.google.com/spreadsheets/d/<ID>/edit
+  tab: AUTOMATED
+
+factcheck_allowlist: [LLM, LLMs, AI, ML, API, APIs, UI, UX, PM, SWE, MVP, KPI, SQL, Python]

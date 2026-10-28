@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+  <key>Label</key><string>com.applyagent.daily</string>
+  <key>ProgramArguments</key><array>
+    <!-- caffeinate -i keeps the Mac awake for the length of the run -->
+    <string>/usr/bin/caffeinate</string>
+    <string>-i</string>
+    <string>/Users/YOUR_USERNAME/.venvs/apply_agent/bin/python</string>
+    <string>/Users/YOUR_USERNAME/Developer/apply_agent/run.py</string>
+  </array>
+  <key>WorkingDirectory</key><string>/Users/YOUR_USERNAME/Developer/apply_agent</string>
+  <key>EnvironmentVariables</key><dict>
+    <key>PATH</key><string>/Library/TeX/texbin:/opt/homebrew/bin:/Users/YOUR_USERNAME/.local/bin:/usr/local/bin:/usr/bin:/bin</string>
+  </dict>
+  <key>StartCalendarInterval</key><dict><key>Hour</key><integer>11</integer><key>Minute</key><integer>0</integer></dict>
+  <key>StandardOutPath</key><string>/Users/YOUR_USERNAME/Developer/apply_agent/data/launchd.log</string>
+  <key>StandardErrorPath</key><string>/Users/YOUR_USERNAME/Developer/apply_agent/data/launchd.log</string>
+</dict></plist>
